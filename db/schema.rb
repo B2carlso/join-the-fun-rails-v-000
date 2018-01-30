@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(version: 20140212205318) do
   end
 
   create_table "rides", force: :cascade do |t|
+    t.integer  "taxi_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "rides", ["taxi_id"], name: "index_rides_on_taxi_id"
 
   create_table "taxis", force: :cascade do |t|
     t.datetime "created_at", null: false
